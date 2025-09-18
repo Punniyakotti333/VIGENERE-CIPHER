@@ -30,7 +30,30 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```
+#include <stdio.h>
+ #include <string.h>
+ void vigenereCipher(char *text, char *key, int decrypt) {
+ int len = strlen(text), keyLen = strlen(key);
+ for (int i = 0; i < len; i++) {
+ int shift = key[i % keyLen]- 'A';
+ text[i] = 'A' + (text[i]- 'A' + (decrypt ? 26- shift : shift)) % 26;
+ }
+ }
+ int main() {
+ char text[] = "PUNNIYAKOTTI", key[] = "KEY";
+ vigenereCipher(text, key, 0);
+ printf("Encrypted Message: %s\n", text);
+ vigenereCipher(text, key, 1);
+ printf("Decrypted Message: %s\n", text);
+ return 0;
+ }
+```
 
 ## OUTPUT
 
+![WhatsApp Image 2025-09-04 at 09 11 22_26b57561](https://github.com/user-attachments/assets/8d3ba94e-303f-4479-92ac-a9ca67f60d72)
+
+
 ## RESULT
+Thus the given program is verified and executed successfully
